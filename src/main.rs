@@ -1,7 +1,8 @@
 use std::{
     env::Args,
-    fs,
-    io::{self, BufReader, Read, Write},
+    fmt::Display,
+    fs::{self},
+    io::{BufReader, Read},
 };
 
 #[derive(Debug)]
@@ -10,6 +11,7 @@ struct Configuration {
     count_characters: bool,
     count_lines: bool,
     count_words: bool,
+    count_bytes: bool,
 }
 
 fn parse_config<'a>(_args: Args) -> Configuration {
@@ -22,13 +24,14 @@ fn parse_config<'a>(_args: Args) -> Configuration {
         count_characters: false,
         count_lines: false,
         count_words: false,
+        count_bytes: false,
     };
 
     while let Some(arg) = args.next() {
         match arg.as_str() {
             "-m" | "--chars" => cfg.count_characters = true,
             "-l" | "--lines" => cfg.count_lines = true,
-
+            "-c" | "--bytes" => cfg.count_bytes = true,
             "-f" | "--files" => {
                 while let Some(value) = args.peek() {
                     if value.starts_with("-") {
@@ -55,6 +58,33 @@ fn parse_config<'a>(_args: Args) -> Configuration {
     return cfg;
 }
 
+struct FileStats {
+    lines: Option<usize>,
+    words: Option<usize>,
+    chars: Option<usize>,
+    bytes: Option<usize>,
+}
+
+impl Display for FileStats {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        if let Some(lines) = self.lines {
+            write!(f, "{} ", lines)?;
+        }
+
+        if let Some(words) = self.words {
+            write!(f, "{} ", words)?;
+        }
+
+        if let Some(chars) = self.chars {
+            write!(f, "{} ", chars)?;
+        }
+        if let Some(bytes) = self.bytes {
+            write!(f, "{} ", bytes)?;
+        }
+        Ok(())
+    }
+}
+
 fn main() {
     let args = std::env::args();
     let config = parse_config(args);
@@ -73,33 +103,27 @@ fn main() {
             Err(error) => panic!("Error reading bytes: {error:?}"),
         };
 
-        let mut out_lines: Vec<String> = Vec::new();
+        let mut stats = FileStats {
+            bytes: None,
+            chars: None,
+            lines: None,
+            words: None,
+        };
         if config.count_lines {
-            out_lines.push(format!(
-                "Lines: {} \n",
-                contents.lines().count().to_string()
-            ));
+            stats.lines = contents.lines().count().into();
         }
         if config.count_characters {
-            out_lines.push(format!(
-                "Characters: {} \n",
-                contents.chars().count().to_string()
-            ));
+            stats.chars = contents.chars().count().into();
         }
 
         if config.count_words {
-            out_lines.push(format!(
-                "Words: {}",
-                contents.split_whitespace().count().to_string()
-            ));
+            stats.words = contents.split_whitespace().count().into();
         }
 
-        for line in out_lines {
-            let formatted_string = format!("{}: {}", filepath, line);
-            match io::stdout().write(formatted_string.as_bytes()) {
-                Ok(_) => (),
-                Err(error) => panic!("Error writing to stdout: {error:?}"),
-            }
+        if config.count_bytes {
+            stats.bytes = contents.bytes().count().into();
         }
+
+        println!("{} {}", stats, filepath);
     }
 }
