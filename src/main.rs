@@ -1,7 +1,7 @@
 use std::{
     env::Args,
     fs,
-    io::{BufReader, Read},
+    io::{self, BufReader, Read, Write},
 };
 
 #[derive(Debug)]
@@ -9,6 +9,7 @@ struct Configuration {
     filepaths: Vec<String>,
     count_characters: bool,
     count_lines: bool,
+    count_words: bool,
 }
 
 fn parse_config<'a>(_args: Args) -> Configuration {
@@ -20,6 +21,7 @@ fn parse_config<'a>(_args: Args) -> Configuration {
         filepaths: Vec::new(),
         count_characters: false,
         count_lines: false,
+        count_words: false,
     };
 
     while let Some(arg) = args.next() {
@@ -37,6 +39,8 @@ fn parse_config<'a>(_args: Args) -> Configuration {
                     cfg.filepaths.push(value);
                 }
             }
+
+            "-w" | "--words" => cfg.count_words = true,
 
             _ if !arg.starts_with("-") => {
                 cfg.filepaths.push(arg);
@@ -69,16 +73,33 @@ fn main() {
             Err(error) => panic!("Error reading bytes: {error:?}"),
         };
 
-        let mut out_str = String::new();
+        let mut out_lines: Vec<String> = Vec::new();
         if config.count_lines {
-            out_str =
-                out_str + format!("Lines: {} \n", contents.lines().count().to_string()).as_str()
+            out_lines.push(format!(
+                "Lines: {} \n",
+                contents.lines().count().to_string()
+            ));
         }
         if config.count_characters {
-            out_str =
-                out_str + format!("Characters: {}", contents.chars().count().to_string()).as_str()
+            out_lines.push(format!(
+                "Characters: {} \n",
+                contents.chars().count().to_string()
+            ));
         }
 
-        println!("{}", out_str);
+        if config.count_words {
+            out_lines.push(format!(
+                "Words: {}",
+                contents.split_whitespace().count().to_string()
+            ));
+        }
+
+        for line in out_lines {
+            let formatted_string = format!("{}: {}", filepath, line);
+            match io::stdout().write(formatted_string.as_bytes()) {
+                Ok(_) => (),
+                Err(error) => panic!("Error writing to stdout: {error:?}"),
+            }
+        }
     }
 }
