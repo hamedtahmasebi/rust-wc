@@ -1,0 +1,22 @@
+// Project-local debug tasks
+//
+// For more documentation on how to configure debug tasks,
+// see: https://zed.dev/docs/debugger
+[
+  {
+    "label": "Run with sample.txt",
+    "type": "lldb",
+    "sourceLanguages": ["rust"],
+    "executable": "${workspaceRoot}/target/debug/${workspaceName}",
+    "args": ["sample.txt", "-l"],
+    "cwd": "${workspaceRoot}"
+  },
+  {
+    "label": "Run with custom args",
+    "type": "lldb",
+    "sourceLanguages": ["rust"],
+    "executable": "${workspaceRoot}/target/debug/${workspaceName}",
+    "args": [],
+    "cwd": "${workspaceRoot}"
+  }
+]

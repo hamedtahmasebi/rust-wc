@@ -1,0 +1,86 @@
+The traders in this study who kept no journal at all had a 53.2% win rate. The ones who journaled every trade had a 44.5% win rate.
+
+The journalers were making money. The non-journalers weren’t.
+
+Infographic comparing non-journaler (53% win rate, 0.91 profit factor) vs journaler (44% win rate, 1.42 profit factor), showing that a higher win rate doesn't equal profitability in trading.
+Over 12 months, we analyzed 5,000 anonymized trading accounts on UltraTrader to see how journaling behavior correlates with actual trading metrics. The central finding pushes back on what most retail traders believe: that skill shows up in your win rate. It doesn’t. Profit factor is what matters, and consistent journaling is the behavior most correlated with moving it above 1.0.
+
+How We Ran This Study
+Sample: 5,000 unique trading accounts over a trailing 12-month period, split into two groups.
+
+Active journal users (1,650 accounts): traders who logged, tagged, or added notes or screenshots to at least 75% of their executed trades within 24 hours of market close.
+
+Inactive group (3,350 accounts): everyone who fell below that 75% threshold.
+
+The metrics we tracked: win rate, risk-to-reward ratio, Consistency Score, profit factor, average max drawdown, and expectancy per dollar risked.
+
+Consistency Score is UltraTrader’s proprietary 0–100 metric. It measures variance in daily trading volume and PnL, penalized by how close a trader gets to their daily loss limits. A score near 100 means stable, predictable risk distribution. Closer to 0 typically reflects erratic sizing — the kind that comes from revenge-trading behavior after a string of losses.
+
+All data is anonymized and aggregated. No individual accounts are identifiable.
+
+The Numbers
+
+Metric	Active Journalers	Non-Journalers
+Average Win Rate	44.5%	53.2%
+Average R:R	1:2.15	1:0.85
+Consistency Score	76 / 100	39 / 100
+Profit Factor	1.42	0.91
+Avg. Max Drawdown	4.1%	8.9%
+Expectancy (per $ risked)	+$0.40	-$0.10
+The non-journaling group closes more trades as winners. With a profit factor of 0.91, for every $100 they make on winning trades, they lose $110 on losers. The journaling group’s profit factor of 1.42 flips that ratio: every $100 made costs roughly $70 in losses on the other side.
+
+The expectancy gap is $0.50 per dollar risked. On a trader running 200 trades a year, risking $200 each, that’s the difference between making $16,000 and losing $4,000.
+
+The Win Rate Paradox
+Win rate feels like the obvious measure of trading skill. A trade goes your way, you win. It makes sense. What it misses is what you did with the trade.
+
+Non-journaling traders in this study run a 0.85 R:R because they cut gains early and hold losses long. Most traders default to this under market uncertainty. Closing a profitable trade delivers certainty. Closing a losing one means admitting the thesis didn’t work. So winners get closed at +0.8% and losers sit open until they’re down 3%.
+
+Journaling disrupts this by creating a paper trail. You log the Apple trade you closed at +1.2% and then watched it run to +6.5%. You log the crypto position you held for four days while it moved against you. Three weeks later, you see the same pattern in your notes.
+
+At that point, most traders change. The documentation makes the habit visible, and visible habits are harder to repeat. That’s why active journalers in this study averaged a 2.15 R:R. They’ve read their own mistakes enough times to stop making them.
+
+When the Numbers Start Changing
+We tracked 412 inactive traders who transitioned to active journaling during the study period, measuring when their expectancy first turned positive.
+
+Chart showing trading journal expectancy over 90 days: Phase 1 negative expectancy days 1–30, breakthrough at day 45, stabilizing at +0.42 by day 60–90 as discipline replaces erratic behavior.
+Days 1–30: The Friction Phase
+Expectancy stays flat, around -$0.08 per dollar risked. Traders face the discomfort of reviewing losing trades they’d rather forget. Churn is highest in this window. Most journaling attempts that fail do so here.
+
+Days 31–60: The Pattern Recognition Phase
+Expectancy climbs to +$0.12. By this point, traders begin identifying their two or three most costly structural errors. The most common across this cohort: overtrading during high-noise sessions (the New York lunch hour came up repeatedly in trade note analysis) and increasing position size after a losing streak instead of pulling back.
+
+Days 61–90+: The Discipline Phase
+Expectancy stabilizes at +$0.35 or higher. The review process stops being a post-trade chore and starts functioning as a real-time constraint. Traders who’ve spent 60 days reading their own notes have internalized the patterns. The drawdown curve flattens noticeably in this phase.
+
+Month one will look like nothing is happening. That’s also when the behavior most responsible for future improvement is being built.
+
+Breakdown by Asset Class
+Journaling affects different markets differently. Each asset class amplifies a different set of failure modes.
+
+Forex
+Active journalers: 46% win rate, 1:2.0 R:R, 3.8% max drawdown. Non-journalers: 55% win rate, 1:0.7 R:R, 9.1% max drawdown.
+
+The non-journaling forex group shows clear grid-trading behavior: adding to losing positions, expecting mean reversion that often doesn’t come. This is one of the most documented failure patterns in retail forex and almost invisible without a journal, because each individual add-on doesn’t feel catastrophic in isolation.
+
+Equities / Stocks
+Active journalers: 42% win rate, 1:2.4 R:R, 4.3% max drawdown. Non-journalers: 48% win rate, 1:1.1 R:R, 7.8% max drawdown.
+
+The R:R gap (2.4 vs 1.1) is the widest across all three asset classes in this study. Stock journalers learn to document why they entered a setup, which makes them more willing to hold through normal pullbacks on a trend-following position. Without that record, the temptation to exit at the first sign of pressure is nearly impossible to resist.
+
+Crypto
+Active journalers: 45% win rate, 1:1.9 R:R, 5.2% max drawdown. Non-journalers: 51% win rate, 1:0.6 R:R, 11.4% max drawdown, with the highest account blow-out rate across all three categories.
+
+Crypto’s volatility creates FOMO conditions that amplify sizing errors. Journalers with a documented rule for maximum position size are far less likely to violate it in a fast-moving market. The drawdown gap (5.2% vs 11.4%) is the largest percentage difference in the entire study, and it’s almost entirely explained by one behavior: over-leveraging into volatile setups with no written pre-trade criteria.
+
+Use UltraTrader Crypto Trading Journal to get your trading performance metrics in a couple of seconds.
+
+What the Data Shows
+Journaling improves performance. Win rate doesn’t move much in the process, and that’s expected: a trader who learns to cut losses faster will close more positions at a loss as a percentage of total trades. What moves are R:R, consistency, drawdown control, and expectancy.
+
+3D bar chart comparing risk-to-reward ratio: non-journaler wins $85 per $100 risked, journaler wins $215 per $100 risked with the same $100 maximum loss, illustrating how journaling improves R:R.
+What separates the journaling group is having a record. Discipline follows from that.
+
+If you want to track your trades with the same metrics used in this study, UltraTrader logs your trades automatically and calculates your Consistency Score, profit factor, and expectancy in real time. Start journaling your trades for free.
+
+Study parameters: N = 5,000 UltraTrader accounts. Trailing 12-month period. Active journaling is defined as logging notes, tags, or screenshots on ≥75% of executed trades within 24 hours of market close. All data anonymized and aggregated.
